@@ -31,6 +31,21 @@ function Snake() {
         
     }
 
+    this.check = () => {
+        for(var i = this.body.length-1; i > 0; i--) {
+            if(this.body[i].x === this.body[0].x && this.body[i].y === this.body[0].y) gameState.lost = true;
+        }
+    }
+
+    this.reset = () => {
+        this.body = [{
+            x: 0,
+            y: 0
+        }];
+        this.xSpeed = scale;
+        this.ySpeed = 0;
+    }
+
     this.clear = () => {
         ctx1.clearRect(0, 0, canvas1.width, canvas1.height);
     }
